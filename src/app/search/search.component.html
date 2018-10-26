@@ -1,0 +1,43 @@
+<div class="container">
+  <nav class="navbar navbar-expand-md navbar-light bg-light">
+    <a href="/" class="navbar-brand">
+      <img src="/assets/logo2.png" alt="rocket_contact" height="60px" width="70px" />
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="navbar-collapse collapse">
+      <form class="mx-2 my-auto d-inline w-100">
+        <div class="input-group">
+          <input type="text" [formControl] = "queryFormControl" class="form-control border border-right-0" placeholder="Search your favourite movies, series and animes">
+          <span class="input-group-append">
+            <button class="btn btn-primary" type="button"  (click)="search({'q':queryFormControl.value})" >
+              Scavange
+            </button>
+          </span>
+        </div>
+      </form>
+
+    </div>
+  </nav>
+
+  <div class="card" *ngIf="isSearched" style="margin-top:10px">
+    <div class="card-header">
+      Search results for : {{searchTitle}}
+    </div>
+    <div class="card-body" *ngIf="results?.length == 0">
+      Sorry! This Scavanging was worthless.
+    </div>
+
+    <ul class="list-group list-group-flush" *ngIf="results?.length > 0">
+      <li class="list-group-item" *ngFor="let result of results">
+        {{result.name}} <a class="float-right" href="{{result.url}}">Download</a>
+      </li>
+    </ul>
+  </div>
+<!-- Pagination Starts -->
+  <div style="margin:10px 0px 10px 0px">
+<p-paginator [rows]="limit" [totalRecords]="count"  (onPageChange)="paginate($event)"></p-paginator>
+</div>
+<!-- Pagination Ends -->
+</div>
