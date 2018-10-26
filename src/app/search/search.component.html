@@ -28,6 +28,9 @@
     <div class="card-body" *ngIf="results?.length == 0">
       Sorry! This Scavanging was worthless.
     </div>
+    <div class="card-body" *ngIf="loading">
+      Please wait! we are Scavanging for you.
+    </div>
 
     <ul class="list-group list-group-flush" *ngIf="results?.length > 0">
       <li class="list-group-item" *ngFor="let result of results">
@@ -36,7 +39,7 @@
     </ul>
   </div>
 <!-- Pagination Starts -->
-  <div style="margin:10px 0px 10px 0px">
+  <div style="margin:10px 0px 10px 0px" [hidden]="count == 0">
 <p-paginator [rows]="limit" [totalRecords]="count"  (onPageChange)="paginate($event)"></p-paginator>
 </div>
 <!-- Pagination Ends -->
