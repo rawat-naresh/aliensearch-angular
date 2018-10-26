@@ -19,7 +19,8 @@ export class SearchComponent implements OnInit{
   isSearched:boolean = false;
   searchTitle:string;
   currentPage:number;
-  count:number;
+  count:number = 0;
+  loading:boolean = true;
   limit:number;
   results:any[];
   
@@ -63,10 +64,12 @@ export class SearchComponent implements OnInit{
       this.isSearched = true;
       this.apiService.get('/search',searchQuery).subscribe(
         (data) => {
+          this.loading = false;
           this.results = data.results;
           this.currentPage = data.current;
           this.count = data.count;
           this.limit = data.limit;
+          
         }
       ) 
     }
