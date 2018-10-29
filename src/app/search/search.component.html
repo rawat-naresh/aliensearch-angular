@@ -3,24 +3,13 @@
     <a href="/" class="navbar-brand">
       <img src="/assets/logo2.png" alt="rocket_contact" height="60px" width="70px" />
     </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="navbar-collapse collapse">
-      <form class="mx-2 my-auto d-inline w-100">
-        <div class="input-group">
-          <input type="text" [formControl] = "queryFormControl" class="form-control border border-right-0" placeholder="Search your favourite movies, series and animes">
-          <span class="input-group-append">
-            <button class="btn btn-primary" type="button"  (click)="search({'q':queryFormControl.value})" >
-              Scavange
-            </button>
-          </span>
-        </div>
-      </form>
-
-    </div>
+    <input type="text" [formControl] = "queryFormControl" class="d-none d-md-block d-lg-block form-control border " placeholder="Search your favourite movies, series and animes">
   </nav>
 
+  <div class="d-md-none" style="margin-top:10px">
+    <input type="text" [formControl] = "queryFormControl" class="form-control border " placeholder="Search your favourite movies, series and animes">
+    
+  </div>
   <div class="card" *ngIf="isSearched" style="margin-top:10px">
     <div class="card-header">
       Search results for : {{searchTitle}}
