@@ -9,6 +9,7 @@ import { AppRoutingModule } from './app.routing.module';
 import { AppComponent } from './app.component';
 import { SearchComponent } from 'src/app/search/search.component';
 import { HomeComponent } from 'src/app/home/home.component';
+import { PlayComponent } from 'src/app/play/play.component';
 
 
 @NgModule({
@@ -16,6 +17,7 @@ import { HomeComponent } from 'src/app/home/home.component';
     AppComponent,
     SearchComponent,
     HomeComponent,
+    PlayComponent
   ],
   imports: [
     BrowserModule,

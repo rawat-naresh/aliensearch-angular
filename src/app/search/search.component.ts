@@ -36,7 +36,7 @@ export class SearchComponent implements OnInit{
       if(queryParams['q'] == null)
         this.router.navigate(['/']);
       else {
-        
+        this.queryFormControl.setValue(queryParams['q']);
         this.search(queryParams);
       }
     });

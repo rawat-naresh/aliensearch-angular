@@ -23,7 +23,8 @@
 
     <ul class="list-group list-group-flush" *ngIf="results?.length > 0">
       <li class="list-group-item" *ngFor="let result of results">
-        {{result.name}} <a class="float-right" href="{{result.url}}">Download</a>
+        {{result.name}} <a class="float-right btn btn-small btn-default" href="{{result.url}}">Download</a>
+        <a class="float-right btn btn-small btn-default" [routerLink]="['/play']" [queryParams]="{ v:result.url }" style="margin-left:5px">Play</a>
       </li>
     </ul>
   </div>
